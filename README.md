@@ -42,3 +42,16 @@ Dataset include these following main fields:
 
 ![image](https://i.imgur.com/ejvpwgP.png)
 
+
+### 3. Method
+Supervised learning with Scikit-learn on Python
+- Supervised learning, also known as supervised machine learning, is a subcategory of machine learning and artificial intelligence. It is defined by its use of labeled datasets to train algorithms that to classify data or predict outcomes accurately.
+- As input data is fed into the model, it adjusts its weights until the model has been fitted appropriately, which occurs as part of the cross validation process.
+- Supervised learning helps organizations solve for a variety of real-world problems at scale, such as classifying spam in a separate folder from your inbox.
+- In details:
+  - Perform EDA to fidn out insightful data, discovered the pattern of churned and not churned users, then suggest the company to reduce churn users.
+  - Preprocessing by filling missing data, checking for duplicates and correlation
+  - Feature transforming with encoding, handling imbalanced data and normalizing
+  - Training models with a number of model and select one to deploy
+
+    
