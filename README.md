@@ -54,4 +54,35 @@ Supervised learning with Scikit-learn on Python
   - Feature transforming with encoding, handling imbalanced data and normalizing
   - Training models with a number of model and select one to deploy
 
-    
+## II. Main Process
+
+### 1. Cleaning and transforming dataset
+
+- After investigating density and data field types of each column, I have provided some suitable data filling methods based on the distribution and context of the data.
+  - tenure column uses bfills method
+  - WTH column uses most frequent method
+  - CouponUsed column uses KNNImputer
+- There is no duplicated rows in dataset.
+- Encoding data by pd.get_dummies(), handling imbalanced data using SMOTETomek, normalizing by MinMaxScaler
+
+### 2. EDA and Feature Selection
+
+![image](https://i.imgur.com/P3lHMVP.png)
+
+- `Tenure`, `NumberofDeviceRegistered`, `PreferOrderCat`, `SatisfactionScore`, `MaritalStatus` and `Complains` columns have quite higher correlations than other columns
+- Other columns I think that they might affect the target variable `Churn` : `DaySinceLastOrder` and `CashbackAmount`
+-  
+
+## III. Model training and evaluation
+
+Apply to models: Logistic Regression, Decision Tree and Random Forest
+
+![image](https://i.imgur.com/dZRiZa4.png)
+
+## IV. Conclussion
+Comparing the balance accuracy of 3 models, we can see that RandomForest has the highest test set's `balanced accuracy score`(**0.948**). 
+RandomForest also has the highest `precision`, `recall` and `F1-score` of 2 classes 0 and 1. => Choose **RandomForest** as the final model used to predict churners for this Company.
+
+![image](https://i.imgur.com/aKp1v2V.png)
+
+![image](https://i.imgur.com/hIFZ8aY.png)
