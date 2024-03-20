@@ -40,3 +40,5 @@ Dataset include these following main fields:
 | OrderCount | Total number of orders has been places in last month |
 | DaySinceLastOrder | Day Since last order by customer |
 
+![image](https://i.imgur.com/ejvpwgP.png)
+
