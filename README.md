@@ -17,8 +17,8 @@ Please see the coding file attached
 The ecommerce dataset records customer information about their demographic and their behaviours. Each customer is labeled churned or not churned.
 Dataset include these following main fields:
 
-| -- | -- |
 | Variable | Description |
+| -- | -- |
 | CustomerID | Unique customer ID |
 | Churn | Churn Flag |
 | Tenure | Tenure of customer in organization |
