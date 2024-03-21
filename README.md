@@ -70,8 +70,21 @@ Supervised learning with Scikit-learn on Python
 ![image](https://i.imgur.com/P3lHMVP.png)
 
 - `Tenure`, `NumberofDeviceRegistered`, `PreferOrderCat`, `SatisfactionScore`, `MaritalStatus` and `Complains` columns have quite higher correlations than other columns
-- Other columns I think that they might affect the target variable `Churn` : `DaySinceLastOrder` and `CashbackAmount`
--  
+- Other columns I think that they might affect the target variable `Churn` : `DaySinceLastOrder`, `CashbackAmount`, `PreferredLoginDevice`, `WarehouseToHome`, `NumberOfAddress`,`OrderCount`   
+-  However `OrderCount` and `NumberOfAddress` are correlated with some other columns above -> we can remove these two columns for next stages.
+
+#### Feature Selection
+After EDA we keep these features: 
+-  `Tenure`
+-  `NumberofDeviceRegistered`
+-  `PreferOrderCat`
+-  `SatisfactionScore`
+-  `MaritalStatus`
+-  `Complains`
+-  `DaySinceLastOrder`
+-  `CashbackAmount`
+-  `PreferredLoginDevice`
+-  `WarehouseToHome`
 
 ## III. Model training and evaluation
 
@@ -79,10 +92,44 @@ Apply to models: Logistic Regression, Decision Tree and Random Forest
 
 ![image](https://i.imgur.com/dZRiZa4.png)
 
-## IV. Conclussion
-Comparing the balance accuracy of 3 models, we can see that RandomForest has the highest test set's `balanced accuracy score`(**0.948**). 
-RandomForest also has the highest `precision`, `recall` and `F1-score` of 2 classes 0 and 1. => Choose **RandomForest** as the final model used to predict churners for this Company.
-
 ![image](https://i.imgur.com/aKp1v2V.png)
 
 ![image](https://i.imgur.com/hIFZ8aY.png)
+
+Comparing the balance accuracy of 3 models, we can see that RandomForest has the highest test set's `balanced accuracy score`(**0.929**). 
+RandomForest also has the highest `precision`, `recall` and `F1-score` of 2 classes 0 and 1. => Choose **RandomForest** as the final model used to predict churners for this Company.
+
+## IV. Enhance Machine Leanring Model
+
+### Feature Importances
+
+![image](https://i.imgur.com/EckNcEJ.png)
+
+### Hyperparameter tuning
+![image](https://i.imgur.com/rgvMpXs.png)
+
+![image](https://i.imgur.com/jpreUD7.png)
+
+### Probability Threshold selection
+
+As default, model will get probability threshold = 0.5 for the model. If we change the probability threshold, the accuracy of model can improve? We will use ROC curve to check which probability threshold will have highest True Positive Rate and loweest False Positive rate.
+
+![image](https://i.imgur.com/tRe1V5E.png)
+
+![image](https://i.imgur.com/mVIy8XG.png)
+
+After hyperparameter tuning & probability threshold selection, we will choose the model Random Forest with the hyperparameter as below and the probability = 0.5235714285714286.
+- `n_estimators= 50`,
+- `max_depth= 20`,
+- `min_samples_split= 2`,
+- `min_samples_leaf= 1`,
+- `bootstrap= False`
+
+
+
+
+
+
+
+
+
